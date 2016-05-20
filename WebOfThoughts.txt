@@ -1,0 +1,45 @@
+gasdjhgalfgaylsdf
+
+
+.
+.
+.
+
+Okay:
+
+Cardgames
+
+-Old Maid
+ -- A game based around getting rid of all cards in your hand by making pairs. Players select a card from another hand until one card is remaining. It can be played with a minimum of 2 players.
+ -- Starting hand: 12/13 Number of Players: 2
+ -- NOTE: One random card will be missing from the deck at the beginning of the game. The card meant to pair with it is the "Old Maid". (EX: if a 4 is removed from the game, then one of the 3 4's is the OLD MAID).
+ -- Computer Players:
+       * Player 1: YOU!!!!!
+       * Player 2: Random Num Generator picks a random number in your hand.
+-- USER INTERACTION:
+       * Player 2 dialogue: Either Pokemon ("I choose you... 3?!), YuGiOh ("I play a 3 pair in Defense Position!!!") or just randomly angry when near end ("PICK THE OLD MAID DAMMIT TAKE IT ALREADY!")
+
+
+-BS
+-- A game based around losing all the cards in your hand  by faking going through the deck. The game ends when a player's hand is empty. It MUST be played by at least 3 players.
+--Option to sort
+-- Starting hand: 13 Number of Players: 4
+-- Computer Players:
+     * Player 1: Calls BS at random intervals, after a certain number of turns determined by random num generator
+     * Player 2: Calls BS if the card's quantity in the middle pile has overcome 4 (aka, if 3 6's have been put in the middle pile, and another 2 6's have put into the middle pile, they call BS)
+     * Player 3: Calls BS on the player with the least amount of cards after a certain number of turns. Will certainly call if only one card left (P3: "UNO!!!!"P2: "No, stupid, wrong game!"))
+     * Player 4: YOU !!!!
+     * All computer players will call BS if they hold 4 of a card that is being called.
+
+
+-War
+--
+
+
+-BlackJack
+--
+
+
+
+
+
