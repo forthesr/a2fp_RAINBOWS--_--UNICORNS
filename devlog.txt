@@ -3,4 +3,4 @@ Devlog
 2016-05-19
 -Lisa: Made repo
 -Jordan: Made devlog and WebOfThoughts (brainstorm)
--Ling: 
+-Ling: Old Maid Algo
