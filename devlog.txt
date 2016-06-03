@@ -4,3 +4,16 @@ Devlog
 -Lisa: Made repo
 -Jordan: Made devlog and WebOfThoughts (brainstorm)
 -Ling: Old Maid Algo
+
+
+2016-05-31
+-Jordan: Start war algorithm
+-Ling: Worked on Card.java and Deck.java
+
+2016-06-02
+-Ling: More Card and Deck work
+-Jordan: Flowchart made for very general game play, start War flowchart
+
+2016-06-03
+-Ling: Finished Card and Deck, do some testing on them
+-Jordan: Finished Flowchart for War, start Old Maid flowchart
