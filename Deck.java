@@ -4,12 +4,13 @@ public class Deck{
     private ArrayList<Card> _deck;
     private int _size;
 
+    //creates empty deck (used for hands)
     public Deck(){
 	_deck= new ArrayList<Card>();
 	_size=0;
     }
 
-    // default constructor creates a default deck
+    //creates a default deck when argument is "52"
     public Deck(int num) {
 	this();
 	String[] str= {"♥", "♠", "♦", "♣"};
@@ -26,25 +27,27 @@ public class Deck{
 	}
     }
     
+    //adds Card c to the deck
     public void addCard( Card c ) {
         _deck.add(c);
 	_size++;
     }
 
+    //removes the top card from the deck (end of ArrayList)
     public Card draw() {
 	if (isEmpty()){
 	    throw new NullPointerException();
 	}else{
-	    return _deck.remove(0);
+	    return _deck.remove(_deck.size()-1);
 	}
     }
 
-
+    //returns the top card (end of ArrayList)
     public Card peekDeck() {
-	return _deck.get(0);
+	return _deck.get(_deck.size()-1);
     }
 
-
+    //shuffles the deck
     public void shuffle () {
 	for (int i=0; i<_deck.size();i++){
 	    int r= (int)(Math.random()*_deck.size());
@@ -52,11 +55,14 @@ public class Deck{
 	}
     }
 
+    //swaps the cards at the given index
     public void swap(int x, int y){
 	Card temp= _deck.get(x);
 	_deck.set(x, _deck.get(y));
 	_deck.set(y, temp);
     }
+
+    //returns whether the deck is empty
     public boolean isEmpty() {
 	return _deck.size()==0;}//O(1)
 
