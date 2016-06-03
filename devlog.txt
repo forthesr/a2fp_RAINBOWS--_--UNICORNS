@@ -16,4 +16,4 @@ Devlog
 
 2016-06-03
 -Ling: Finished Card and Deck, do some testing on them
--Jordan: Finished Flowchart for War, start Old Maid flowchart
+-Jordan: Finished Flowchart for War, start war code
