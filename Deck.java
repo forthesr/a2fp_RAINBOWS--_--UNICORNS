@@ -2,24 +2,21 @@ import java.util.ArrayList;
 
 public class Deck{
     private ArrayList<Card> _deck;
-    private int _size;
 
     //creates empty deck (used for hands)
     public Deck(){
 	_deck= new ArrayList<Card>();
-	_size=0;
     }
 
     //creates a default deck when argument is "52"
     public Deck(int num) {
 	this();
-	String[] str= {"♥", "♠", "♦", "♣"};
+	String[] str= {"S", "H", "C", "D"};
 	if (num== 52){
 	    for (String s: str){
 		for(int i= 1; i<=13; i++){
 		    Card c= new Card(i, s);
 		    _deck.add(c);
-		    _size++;
 		}
 	    }
 	}else{
@@ -30,22 +27,31 @@ public class Deck{
     //adds Card c to the deck
     public void addCard( Card c ) {
         _deck.add(c);
-	_size++;
     }
 
-    //removes the top card from the deck (end of ArrayList)
+    //removes the top card from the deck (beginning of ArrayList)
     public Card draw() {
 	if (isEmpty()){
 	    throw new NullPointerException();
 	}else{
-	    return _deck.remove(_deck.size()-1);
+	    return _deck.remove(0);
 	}
     }
 
-    //returns the top card (end of ArrayList)
-    public Card peekDeck() {
-	return _deck.get(_deck.size()-1);
+    //removes the card at index i
+    public Card removeCard(int i){
+	if (i<0||i>=_deck.size()){
+	    throw new NullPointerException();
+	}else{
+	    return _deck.remove(i);
+	}
     }
+
+    //returns the card at index i
+    public Card peekCard(int i) {
+	return _deck.get(i);
+    }
+
 
     //shuffles the deck
     public void shuffle () {
@@ -65,6 +71,11 @@ public class Deck{
     //returns whether the deck is empty
     public boolean isEmpty() {
 	return _deck.size()==0;}//O(1)
+
+    //returns the size of the deck
+    public int getSize(){
+	return _deck.size();
+    }
 
     // print each node, separated by spaces
     public String toString() { 
