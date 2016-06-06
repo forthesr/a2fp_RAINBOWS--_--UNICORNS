@@ -1,5 +1,9 @@
-Devlog
-
+,------.                  ,--.                  
+|  .-.  \  ,---.,--.  ,--.|  |    ,---.  ,---.  
+|  |  \  :| .-. :\  `'  / |  |   | .-. || .-. | 
+|  '--'  /\   --. \    /  |  '--.' '-' '' '-' ' 
+`-------'  `----'  `--'   `-----' `---' .`-  /  
+                                        `---'   
 2016-05-19
 -Lisa: Made repo
 -Jordan: Made devlog and WebOfThoughts (brainstorm)
@@ -15,5 +19,11 @@ Devlog
 -Jordan: Flowchart made for very general game play, start War flowchart
 
 2016-06-03
--Ling: Finished Card and Deck, do some testing on them
+-Ling: Finished Card and Deck, did some testing on them
 -Jordan: Finished Flowchart for War, start war code
+
+2016-06-04
+-Ling: Changed and added more methods in Deck
+
+2016-06-05
+-Ling: Started on OldMaid class. Has a working discardPairs() method. 
