@@ -17,13 +17,16 @@
 2016-06-02
 -Ling: More Card and Deck work
 -Jordan: Flowchart made for very general game play, start War flowchart
+-Lisa: Created card images
 
 2016-06-03
 -Ling: Finished Card and Deck, did some testing on them
 -Jordan: Finished Flowchart for War, start war code
+-Lisa: Created buttons and began animations
 
 2016-06-04
 -Ling: Changed and added more methods in Deck
 
 2016-06-05
 -Ling: Started on OldMaid class. Has a working discardPairs() method. 
+-Lisa: Cry because animations
