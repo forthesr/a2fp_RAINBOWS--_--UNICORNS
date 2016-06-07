@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.*;
 
 public class Deck{
     private ArrayList<Card> _deck;
@@ -28,9 +29,12 @@ public class Deck{
     public void addCard( Card c ) {
         _deck.add(c);
     }
+    public Card getCard(int num){
+	return(_deck.get(num));
+    }
 
     //removes the top card from the deck (beginning of ArrayList)
-    public Card draw() {
+    public Card discard() {
 	if (isEmpty()){
 	    throw new NullPointerException();
 	}else{
@@ -39,20 +43,17 @@ public class Deck{
     }
 
     //removes the card at index i
-    public Card removeCard(int i){
+    public Card discard(int i){
 	if (i<0||i>=_deck.size()){
 	    throw new NullPointerException();
 	}else{
 	    return _deck.remove(i);
 	}
     }
-
     //returns the card at index i
-    public Card peekCard(int i) {
-	return _deck.get(i);
+    public int peekCard(int i) {
+	return _deck.get(i).getValue();
     }
-
-
     //shuffles the deck
     public void shuffle () {
 	for (int i=0; i<_deck.size();i++){
@@ -60,14 +61,12 @@ public class Deck{
 	    swap(i, r);
 	}
     }
-
     //swaps the cards at the given index
     public void swap(int x, int y){
 	Card temp= _deck.get(x);
 	_deck.set(x, _deck.get(y));
 	_deck.set(y, temp);
     }
-
     //returns whether the deck is empty
     public boolean isEmpty() {
 	return _deck.size()==0;}//O(1)
@@ -75,6 +74,10 @@ public class Deck{
     //returns the size of the deck
     public int getSize(){
 	return _deck.size();
+    }
+    
+    public void drawFrom(Deck other, int num){
+	_deck.add(other.discard(num));
     }
 
     // print each node, separated by spaces
@@ -93,7 +96,7 @@ public class Deck{
 	System.out.println("Initial Deck: "+deck);
 	deck.shuffle();
 	System.out.println("Shuffled Deck: "+deck);
-	hand.addCard(deck.draw());
+	hand.addCard(deck.discard());
 	System.out.println("Adding to Hand: "+hand);
 	System.out.println("After drawing from Deck: "+deck);
     }
