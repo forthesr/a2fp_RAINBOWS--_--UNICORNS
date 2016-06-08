@@ -22,11 +22,11 @@ public class OldMaid{
 	Deck cpu3= new Deck();	
 
 	System.out.println("Enter a name for CPU1");
-	int CPU1= Keyboard.readString();
+	String CPU1= Keyboard.readString();
 	System.out.println("Enter a name for CPU2");
-	int CPU2= Keyboard.readString();	
+	String CPU2= Keyboard.readString();	
 	System.out.println("Enter a name for CPU3");
-	int CPU3= Keyboard.readString();
+	String CPU3= Keyboard.readString();
 
 	System.out.println("Starting game");
 	System.out.println("Shuffling cards");
@@ -101,7 +101,7 @@ public class OldMaid{
 	    }
 	    if(c%4==0){
 		if(player.getSize()==0){
-		    System.out.prinntln("CONGRATS!!!! YOU WON!!!");
+		    System.out.println("CONGRATS!!!! YOU WON!!!");
 		    break;
 		}
 		if(cpu1.getSize()==0 && cpu2.getSize()==0 && cpu3.getSize()==0){
@@ -109,16 +109,17 @@ public class OldMaid{
 		    break;
 		}
 		System.out.println("Your turn");
-		System.out.println("Which card would you like to choose? (0-"+(cpu1.getSize()-1)+ ")");
+		System.out.println("Here are your cards: "+player);
+		System.out.println("Which card would you like to choose from "+CPU1 +"? (0-"+(cpu1.getSize()-1)+ ")");
 		ran= Keyboard.readInt();
 		System.out.println("You drew a "+cpu1.peekCard(ran)+" from "+CPU1);
-		player.drawFrom(CPU1, ran);
+		player.drawFrom(cpu1, ran);
 		discardPairs(player);
 		player.shuffle();
 		cpu3.shuffle();
 		c++;
 		if(player.getSize()==0){
-		    System.out.prinntln("CONGRATS!!!! YOU WON!!!");
+		    System.out.println("CONGRATS!!!! YOU WON!!!");
 		    break;
 		}
 	    }
