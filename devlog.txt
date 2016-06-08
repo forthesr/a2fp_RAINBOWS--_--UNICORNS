@@ -30,3 +30,9 @@
 2016-06-05
 -Ling: Started on OldMaid class. Has a working discardPairs() method. 
 -Lisa: Cry because animations
+
+2016-06-06
+-Ling: Worked on OldMaid class. Need to squish some bugs.
+
+2016-06-05
+-Ling: Squished the bugs. Has a running game.
