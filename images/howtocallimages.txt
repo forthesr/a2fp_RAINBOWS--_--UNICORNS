@@ -4,3 +4,15 @@ call "card" + sign (ex- heart) + # (Ace, J, Q, K are referred to as 1,11,12,13)
 Anything else:
 Name of game (BJ/Blackjack, OldMaid, WAR, BS) + whatever name of file you want to call
 
+Need to finish pretty cards JQK
+B*S startscreen bc shoop hates me
+TsunDonut faces (B*S)
+Invisible Man faces (B*S)
+? (B*S)
+Catburger faces (Old Maid)
+? (Old Maid)
+? (Old Maid)
+Brat King faces (WAR)
+? (BJ)
+? (BJ)
+Dealer(BJ)
