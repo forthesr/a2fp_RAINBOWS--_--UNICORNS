@@ -1,0 +1,6 @@
+To call cards:
+call "card" + sign (ex- heart) + # (Ace, J, Q, K are referred to as 1,11,12,13)
+
+Anything else:
+Name of game (BJ/Blackjack, OldMaid, WAR, BS) + whatever name of file you want to call
+
