@@ -39,3 +39,10 @@
 
 2016-06-10
 -Lisa: Finished all still character images
+
+2016-06-11
+-Lisa: Finished working start screen in processing
+-Jordan: Finished War
+
+2016-06-12
+-Everyone: Finished game
