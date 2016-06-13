@@ -12,6 +12,15 @@ public class OldMaid{
 		}
 	    }
 	}
+
+    }
+
+    public static Deck getNextDeck(Deck d2, Deck d3, Deck d4){
+	if (d2.getSize()>0){
+	    return d2;
+	}else if(d3.getSize()>0)
+	    return d3;
+	else return d4;
     }
 
     public static void main(String[] args){
@@ -20,13 +29,6 @@ public class OldMaid{
 	Deck cpu1= new Deck();
 	Deck cpu2= new Deck();
 	Deck cpu3= new Deck();	
-
-	System.out.println("Enter a name for CPU1");
-	String CPU1= Keyboard.readString();
-	System.out.println("Enter a name for CPU2");
-	String CPU2= Keyboard.readString();	
-	System.out.println("Enter a name for CPU3");
-	String CPU3= Keyboard.readString();
 
 	System.out.println("Starting game");
 	System.out.println("Shuffling cards");
@@ -55,47 +57,51 @@ public class OldMaid{
 
 	int c= (int)(Math.random()*4);
 	int ran;
+	Deck temp;
 
 	while(player.getSize()!=0){
 	    if(c%4==1){
 		if(cpu1.getSize()!=0){
-		    System.out.println(CPU1+"'s turn");
-		    ran= (int)(Math.random()*cpu2.getSize());
-		    cpu1.drawFrom(cpu2, ran);
-		    System.out.println(CPU1+" drew a card from "+CPU2);
+		    System.out.println("CPU1's turn");
+		    temp= getNextDeck(cpu2, cpu3, player);
+		    ran= (int)(Math.random()*temp.getSize());
+		    System.out.println("CPU1 drew a card");
+		    cpu1.drawFrom(temp, ran);
 		    discardPairs(cpu1);
 		    cpu1.shuffle();
-		    cpu2.shuffle();
+		    temp.shuffle();
 		    if(cpu1.getSize()==0)
-			System.out.println(CPU1+ " has won");
+			System.out.println("CPU1 has won");
 		}
 		c++;
 	    }
 	    if(c%4==2){
 		if(cpu2.getSize()!=0){
-		    System.out.println(CPU2+"'s turn");
-		    ran= (int)(Math.random()*cpu3.getSize());
-		    cpu2.drawFrom(cpu3, ran);
-		    System.out.println(CPU2+" drew a card from "+CPU3);
+		    System.out.println("CPU2's turn");
+		    temp= getNextDeck(cpu3, player, cpu1);
+		    ran= (int)(Math.random()*temp.getSize());
+		    cpu2.drawFrom(temp, ran);
+		    System.out.println("CPU2 drew a card");
 		    discardPairs(cpu2);
 		    cpu2.shuffle();
-		    cpu3.shuffle();
+		    temp.shuffle();
 		    if(cpu2.getSize()==0)
-			System.out.println(CPU2+ " has won");
+			System.out.println("CPU2 has won");
 		}
 		c++;
 	    }
 	    if(c%4==3){
 		if(cpu3.getSize()!=0){
-		    System.out.println(CPU3+"'s turn");
-		    ran= (int)(Math.random()*player.getSize());
-		    System.out.println(CPU3+" drew a "+player.peekCard(ran)+" from you");
-		    cpu3.drawFrom(player, ran);
+		    System.out.println("CPU3's turn");
+		    temp= getNextDeck(player, cpu1, cpu2);
+		    ran= (int)(Math.random()*temp.getSize());
+		    System.out.println("CPU3 drew a card");
+		    cpu3.drawFrom(temp, ran);
 		    discardPairs(cpu3);
 		    cpu3.shuffle();
-		    player.shuffle();
+		    temp.shuffle();
 		    if(cpu3.getSize()==0)
-			System.out.println(CPU3+ " has won");
+			System.out.println("CPU3 has won");
 		}
 		c++;
 	    }
@@ -110,13 +116,15 @@ public class OldMaid{
 		}
 		System.out.println("Your turn");
 		System.out.println("Here are your cards: "+player);
-		System.out.println("Which card would you like to choose from "+CPU1 +"? (0-"+(cpu1.getSize()-1)+ ")");
+		temp= getNextDeck(cpu1, cpu2,cpu3);
+		System.out.println("Which card would you like to choose? (0-"+(temp.getSize()-1)+ ")");
 		ran= Keyboard.readInt();
-		System.out.println("You drew a "+cpu1.peekCard(ran)+" from "+CPU1);
-		player.drawFrom(cpu1, ran);
+		System.out.println("You drew a "+temp.peekCard(ran));
+		player.drawFrom(temp, ran);
 		discardPairs(player);
+		System.out.println("Your hand: "+player);
 		player.shuffle();
-		cpu3.shuffle();
+		temp.shuffle();
 		c++;
 		if(player.getSize()==0){
 		    System.out.println("CONGRATS!!!! YOU WON!!!");
@@ -125,23 +133,6 @@ public class OldMaid{
 	    }
 	}
 	    
-	// while(player.getSize()!=0&& cpu.getSize()!=0){
-	// 	ran=(int)(Math.random()*player.getSize());
-	// 	System.out.println(player.peekCard(ran)+ " taken from player");//testing
-	// 	cpu.drawFrom(player, ran);
-	// 	discardPairs(cpu);
-	// 	cpu.shuffle();
-		
-	// 	if (player.getSize()==0&& cpu.getSize()==0){
-	// 	    break;
-	// 	}
-	// 	System.out.println("Which card would you like to choose? (0-"+(cpu.getSize()-1)+ ")");//testing
-	// 	int choice= Keyboard.readInt();
-	// 	player.drawFrom(cpu, choice);
-	// 	discardPairs(player);
-	// 	player.shuffle();
-	// 	System.out.println("Player: "+player);
-	// 	//System.out.println("CPU: "+cpu);
 
     }//end main
 }//end class
