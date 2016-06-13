@@ -44,7 +44,6 @@ public class BS {
 			   CPU1 + ":  " + cpu1 + "\n" +
 			   CPU2 + ":  " + cpu2 + "\n" +
 			   CPU3 + ":  " + cpu3);
-			  
     }
 
     public void play(){
@@ -71,8 +70,6 @@ public class BS {
 	Card temp = d.getCard(x);
 	d.setCard(x, d.getCard(y));
 	d.setCard(y, temp);
-
-
     }
 
     public static void main(String[] args){
