@@ -33,7 +33,7 @@
     }
 
     void playOldMaid() {
-          background = loadImage("GameScreen.jpg");
+          background = loadImage("OldMaidStartScreen.jpg");
           Deck deck= new Deck(52);
           Deck player= new Deck();
           Deck cpu1= new Deck();
