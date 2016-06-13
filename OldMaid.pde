@@ -1,4 +1,4 @@
- void discardPairs(Deck deck){
+void discardPairs(Deck deck){
       //print("IN DISCARD PAIRS");
       for(int i=0; i<deck.getSize(); i++){ 
     //print("IN DECK SIZE "+ i);
@@ -20,13 +20,19 @@
           Deck cpu1= new Deck();
           Deck cpu2= new Deck();
           Deck cpu3= new Deck();
-          int wins = 0;
-          int losses = 0;
-          String dialogue = "";
 
           String CPU1 = "TsunDonut";
           String CPU2 = "InvisibleMan";
           String CPU3 = "BurgerCat";
+
+          image(background,0,0);
+          delay(200);
+          background = loadImage("GameScreen.jpg");
+          PImage carddeck = loadImage("CardDeck.jpg");
+          image(carddeck,100,150);
+          image(carddeck,0,150);
+          image(carddeck, 500,150);
+          PImage cardback = loadImage("CardBack.jpg");
   
           deck.shuffle();
           deck.discard();
@@ -145,7 +151,6 @@
     }
     text("Pick a card",100,100);
     int line = 200;
-    PImage cardback;
     for (int i = 0; i < cpu1.getSize(); i++){
       cardback = loadImage("CardBack.jpg");
       image(cardback, 300, line);

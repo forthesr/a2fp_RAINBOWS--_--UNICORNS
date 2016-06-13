@@ -21,21 +21,7 @@ public class Deck{
         _deck.add(c);
     }  
       }
-  }else if (num== 10){
-      for (String s: str){
-    for(int i= 1; i<=10; i++){
-        Card c= new Card(i, s);
-        _deck.add(c);
-    }
-      }
-      //in blackjack, the values of JQK are 10
-      for (String s: str){
-    for(int i= 0; i<3; i++){
-        Card c= new Card(10, s);
-        _deck.add(c);
-    }
-      }
-  }else {
+  }else{
       System.out.println("Wrong number");  
   }
     }
