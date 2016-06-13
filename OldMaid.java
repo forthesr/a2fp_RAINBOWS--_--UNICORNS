@@ -62,7 +62,7 @@ public class OldMaid{
 	while(player.getSize()!=0){
 	    if(c%4==1){
 		if(cpu1.getSize()!=0){
-		    System.out.println("CPU1's turn");
+		    System.out.println("\n\nCPU1's turn");
 		    temp= getNextDeck(cpu2, cpu3, player);
 		    ran= (int)(Math.random()*temp.getSize());
 		    System.out.println("CPU1 drew a card");
@@ -77,7 +77,7 @@ public class OldMaid{
 	    }
 	    if(c%4==2){
 		if(cpu2.getSize()!=0){
-		    System.out.println("CPU2's turn");
+		    System.out.println("\n\nCPU2's turn");
 		    temp= getNextDeck(cpu3, player, cpu1);
 		    ran= (int)(Math.random()*temp.getSize());
 		    cpu2.drawFrom(temp, ran);
@@ -92,7 +92,7 @@ public class OldMaid{
 	    }
 	    if(c%4==3){
 		if(cpu3.getSize()!=0){
-		    System.out.println("CPU3's turn");
+		    System.out.println("\n\nCPU3's turn");
 		    temp= getNextDeck(player, cpu1, cpu2);
 		    ran= (int)(Math.random()*temp.getSize());
 		    System.out.println("CPU3 drew a card");
@@ -114,7 +114,7 @@ public class OldMaid{
 		    System.out.println("Sorry, you lost");
 		    break;
 		}
-		System.out.println("Your turn");
+		System.out.println("\n\nYour turn");
 		System.out.println("Here are your cards: "+player);
 		temp= getNextDeck(cpu1, cpu2,cpu3);
 		System.out.println("Which card would you like to choose? (0-"+(temp.getSize()-1)+ ")");
