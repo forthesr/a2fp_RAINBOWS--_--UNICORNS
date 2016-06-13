@@ -1,4 +1,4 @@
-
+PImage background;
     boolean dealerDraw(Deck _deal){
   return getFinalVal(_deal)< 17;
     }
@@ -66,7 +66,7 @@
   cpu2.drawFrom(deck, 0);
   cpu2.drawFrom(deck, 0);
   
-  PImage carddeck = loadImage("cardDeck.jpg");
+  PImage carddeck = loadImage("CardBack.jpg");
   image(carddeck,0,0);
   image(carddeck,0,70);
   image(carddeck,500,0);
@@ -95,7 +95,7 @@
         System.out.println("You got a BLACKJACK");
     }
     System.out.println("HIT or STAND?");
-    String choice= Keyboard.readString();
+    String choice= "stand";//Keyboard.readString();
     if (choice.compareTo("hit")==0){
         System.out.println("You drew a "+deck.getCard(0).getValue()+deck.getCard(0).getFace());
         player.drawFrom(deck, 0);
