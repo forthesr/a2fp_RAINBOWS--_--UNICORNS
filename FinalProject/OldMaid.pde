@@ -17,6 +17,15 @@
 //what does this code even do
 //why does no one comment their code
 //what are they teaching you ikids these days
+
+    Deck getNextDeck(Deck d2, Deck d3, Deck d4){
+   if (d2.getSize()>0){
+       return d2;
+   }else if(d3.getSize()>0)
+       return d3;
+  else return d4;
+      }
+
     void discardPairs(Deck deck){
       //print("IN DISCARD PAIRS");
   for(int i=0; i<deck.getSize()-1; i++){ 
@@ -49,24 +58,28 @@
   
 
   System.out.println("Distributing cards");
-  for (int i=0; i<51; i++){
+  for (int i=0; i<52; i++){
       if (i%4==0)
       {
       player.drawFrom(deck, 0); 
-      print("player has this card: " + i);
+      //print("player has this card: " + i);
       }
       else if (i%4==1)
       {
-      cpu1.drawFrom(deck, 0); print("cpu1 has this card: " + i);
+      cpu1.drawFrom(deck, 0);// print("cpu1 has this card: " + i);
       }
       else if (i%4==2)
      {
-       cpu2.drawFrom(deck, 0); print ("cpu2 has this card : " + i);
+       cpu2.drawFrom(deck, 0);// print ("cpu2 has this card : " + i);
      }
      else{
-    cpu3.drawFrom(deck, 0); print ("cpu3 hs this card: " + i);
+    cpu3.drawFrom(deck, 0);// print ("cpu3 hs this card: " + i);
       }
       //deck in middle gets split into four hands
+      
+   //   print("thisi s how many cards they have: \n" 
+     //     + "cpu1: " + cpu1.getSize() + "cpu 2: " + cpu2.getSize()
+       //   + " cpu3: " + cpu3.getSize() + " player: " + player.getSize());
   }
 
   System.out.println("Discarding pairs");//testing
@@ -77,19 +90,21 @@
 
   int c= (int)(Math.random()*4);
   int ran;
+  Deck temp;
 
   while(player.getSize()!=0){
       if(c%4==1){ //WHAT IS C? COMMENT YOUR CODE FOOL. 
     if(cpu1.getSize()!=0){
-        ran= (int)(Math.random()*cpu2.getSize());
+        temp= getNextDeck(cpu2, cpu3, player);
+        ran= (int)(Math.random()*temp.getSize());
         cpu1.drawFrom(cpu2, ran);
         System.out.println(CPU1+" drew a card from "+CPU2);
       
         print("Discarding pairs for cpu1, their size is: " + cpu1.getSize());
-
+        cpu1.drawFrom(temp, ran);
         discardPairs(cpu1);
         cpu1.shuffle();
-        cpu2.shuffle();
+        temp.shuffle();
         if(cpu1.getSize()==0)
        background = loadImage("YouLose.jpg");
        image(background, 0, 0);
@@ -114,13 +129,14 @@
       }
       if(c%4==3){
     if(cpu3.getSize()!=0){
-        ran= (int)(Math.random()*player.getSize());
+         temp= getNextDeck(player, cpu1, cpu2);
+        ran= (int)(Math.random()*temp.getSize());
         System.out.println(CPU3+" drew a "+player.peekCard(ran)+" from you");
-        cpu3.drawFrom(player, ran);
+        cpu3.drawFrom(temp, ran);
         print("discard pairs cpi3 their size is: " + cpu3.getSize());
         discardPairs(cpu3);
         cpu3.shuffle();
-        player.shuffle();
+        temp.shuffle();
         if(cpu3.getSize()==0)
        background = loadImage("YouLose.jpg");
        image(background, 0, 0);
