@@ -11,12 +11,16 @@ public class BS {
 
     public BS(){
 	deck = new Deck(52);
+	player = new Deck();
+	cpu1 = new Deck();
+	cpu2 = new Deck();
+	cpu3 = new Deck();
 
-	System.out.println("Enter a name for CPU1");
+	System.out.print("Enter a name for CPU1: ");
 	String CPU1= Keyboard.readString();
-	System.out.println("Enter a name for CPU2");
+	System.out.print("Enter a name for CPU2: ");
         String CPU2= Keyboard.readString();	
-	System.out.println("Enter a name for CPU3");
+	System.out.print("Enter a name for CPU3: ");
 	String CPU3= Keyboard.readString();
 
 	System.out.println("Starting game");
@@ -30,13 +34,48 @@ public class BS {
 	    cpu2.drawFrom(deck, 0);
 	    cpu3.drawFrom(deck, 0);
 	}
+
+	sort(player);
+	sort(cpu1);
+	sort(cpu2);
+	sort(cpu3);
+
+	System.out.println("You: " + player + "\n" +
+			   CPU1 + ":  " + cpu1 + "\n" +
+			   CPU2 + ":  " + cpu2 + "\n" +
+			   CPU3 + ":  " + cpu3);
+			  
     }
 
     public void play(){
 	
     }
 
-    public void main(String args){
+    public void sort(Deck hand){
+	for( int passCtr = 1; passCtr < hand.getSize(); passCtr++ ) {
+	    //System.out.println( "commencing pass #" + passCtr + "..." );
+
+	    //iterate thru first to next-to-last element, comparing to next
+	    for( int i = 0; i < hand.getSize()-1; i++ ) {
+
+		//if element at i > element at 1+1, swap
+		if ( hand.peekCard(i) > hand.peekCard(i+1) )
+		    swap(hand, i, i+1);
+		
+		//System.out.println(data); //diag: show current state of list
+	    }
+	}
+    }
+
+    public void swap(Deck d, int x, int y){
+	Card temp = d.getCard(x);
+	d.setCard(x, d.getCard(y));
+	d.setCard(y, temp);
+
+
+    }
+
+    public static void main(String[] args){
 	BS game = new BS();
 	
     }

@@ -44,6 +44,11 @@ public class Deck{
     public void addCard( Card c ) {
         _deck.add(c);
     }
+
+    public void setCard(int i, Card c){
+	_deck.set(i, c);
+    }
+    
     public Card getCard(int num){
 	return(_deck.get(num));
     }
