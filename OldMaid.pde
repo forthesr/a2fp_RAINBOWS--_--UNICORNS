@@ -1,23 +1,4 @@
-//Why is discardPairs the first method in OldMaid class
-//Why is there no summary about the class
-//Or this method
-//Are these high school kids programming or something
-//Argh
-//YOUR FIRST MISTAKE IS DISTRIBUTING CARDS
-//FIRST OF ALL
-//OK YOU KNOW WHAT
-//THIS IS A HUGE MESS
-//I HOPE YOURE PROUD OF YOUSRELF. 
-//IM LOOKING AT U PERSON WHO WROTE THIS
-//IF U CAN HAND THIS IN EARLY
-//U HAVE TIME TO CHECK UR OWN MISTAKES. 
-
-//This picks out two cards from witin your deck and 
-//Checks wthether or not they are a pair
-//what does this code even do
-//why does no one comment their code
-//what are they teaching you ikids these days
-    void discardPairs(Deck deck){
+ void discardPairs(Deck deck){
       //print("IN DISCARD PAIRS");
       for(int i=0; i<deck.getSize(); i++){ 
     //print("IN DECK SIZE "+ i);
