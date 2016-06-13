@@ -1,13 +1,13 @@
 class Card{
     int value;
-    PImage face;
+    String face;
 
    Card(int num){
   value= num;
   face= null;
     }
     
-    public Card(int num, PImage img){
+    public Card(int num, String img){
   value= num;
   face= img;
     }
@@ -16,7 +16,7 @@ class Card{
     int getValue(){
   return value;
     }
-    PImage getFace(){
+    String getFace(){
   return face;
     }
 

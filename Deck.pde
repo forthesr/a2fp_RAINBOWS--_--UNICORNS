@@ -1,10 +1,12 @@
 PImage currentCard;
+PImage backgroundRedraw;// = loadImage("BackgroundRedraw.jpg");
 
 public class Deck{
     ArrayList<Card> _deck;
 
     //creates empty deck (used for hands)
     public Deck(){
+      backgroundRedraw = loadImage("BackgroundRedraw.jpg");
   _deck= new ArrayList<Card>();
     }
 
@@ -15,8 +17,7 @@ public class Deck{
   if (num== 52){
       for (String s: str){
     for(int i= 1; i<=13; i++){
-      currentCard = loadImage("Card" + s + i);
-        Card c= new Card(i, currentCard);
+        Card c= new Card(i, s);
         _deck.add(c);
     }  
       }
@@ -51,8 +52,21 @@ public class Deck{
   }
     }
     
+    //returns the size of the deck
+    public int getSize(){
+  return _deck.size();
+    }
+    
     //returns the card at index i
     public int peekCard(int i) {
+      //card flip
+      if(i > getSize()) {i = 12; }
+      currentCard = loadImage("Card" + _deck.get(i).getFace() + _deck.get(i).getValue() +".jpg" );
+      m = millis();
+      if ( millis() <= m + 1000) {
+        image(currentCard, 300, 200);
+      }
+      image(backgroundRedraw, 300, 200);
   return _deck.get(i).getValue();
     }
     
@@ -70,18 +84,14 @@ public class Deck{
   _deck.set(x, _deck.get(y));
   _deck.set(y, temp);
     }
+    
     //returns whether the deck is empty
     public boolean isEmpty() {
   return _deck.size()==0;}//O(1)
 
-    //returns the size of the deck
-    public int getSize(){
-  return _deck.size();
-    }
     
     public void drawFrom(Deck other, int num){
   _deck.add(other.discard(num));
     }
-
 
 }
