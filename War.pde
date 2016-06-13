@@ -4,40 +4,11 @@
     Deck _p1Win;
     Deck _p2Win;
     boolean fin;
-    
-    void War(){
-      
-    fin = false;
-
-    //needed for case when same card played
-     _winPile = new Deck();
-
-    //p1 is player, p2 is cpu
-    
-    //players' hands 
-    _p1Play = new Deck();
-    _p2Play = new Deck();
-
-    //players' win piles
-    _p1Win = new Deck();
-    _p2Win = new Deck();
-    
-  Deck blah = new Deck(52);
-  blah.shuffle();
-
-  System.out.println("Starting game");
-  System.out.println("Shuffling cards");
-
-  System.out.println("Distributing cards");
-  //splits the deck
-  for (int i = 0; i < 52; i+= 2){
-      _p1Play.drawFrom(blah, 0);
-      _p2Play.drawFrom(blah, 0);
-  }
+   
 
   //helper SOP statement
   //System.out.println("P1: " + _p1Play + "\nP2: " + _p2Play);
-    }
+    
     
     
     void swapDeck(Deck win, Deck play){
@@ -61,12 +32,42 @@
     }
 
     public void play(){
+      fin = false;
+
+    //needed for case when same card played
+     _winPile = new Deck();
+
+    //p1 is player, p2 is cpu
+    
+    //players' hands 
+    _p1Play = new Deck();
+    _p2Play = new Deck();
+
+    //players' win piles
+    _p1Win = new Deck();
+    _p2Win = new Deck();
+    
+  Deck blah = new Deck(52);
+  blah.shuffle();
+    
+  System.out.println("Starting game");
+  System.out.println("Shuffling cards");
+
+  System.out.println("Distributing cards");
+  //splits the deck
+  for (int i = 0; i < 52; i+= 2){
+      _p1Play.drawFrom(blah, 0);
+      _p2Play.drawFrom(blah, 0);
+  }
+      print("what");
   //winner of round
   Deck temp = _p1Play;
+  print("huh?");
   //if player hand empty
-  if (_p1Play.isEmpty()){
+  if (_p1Play.getSize()==0){
+    print("why?");
       //if win also empty, game lost
-      if (_p1Win.isEmpty()){
+      if (_p1Win.getSize()==0){
     loseGame();
       }
       //if not, puts win in play, shuffles
@@ -84,13 +85,13 @@
       else {
     swapDeck(_p2Win, _p2Play);
       }
-  }
   
+  }
   System.out.println ("Declaring War");
-    background = loadImage("GameScreen.jpg");
+    background = loadImage("WARStartScreen.jpg");
     image(background,0,0);
     
-    PImage deck = loadImage("CardDeck.jpg");
+    PImage deck = loadImage("CardBack.jpg");
     image(deck, 100,150);
     image(deck, 225, 150);
 
